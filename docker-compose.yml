@@ -1,0 +1,22 @@
+version: '3'
+services:
+  credito-card-backend:
+    image: juliosilvacwb/credito-card-backend
+    container_name: credito-card-backend
+    ports:
+      - "8080:8080"
+    networks: 
+      - net-card
+  credito-card-frontend:
+    image: juliosilvacwb/credito-card-frontend
+    container_name: credito-card-frontend
+    ports:
+      - "3000:3000"
+    networks: 
+      - net-card
+    depends_on: 
+      - "credito-card-backend"
+
+networks: 
+  net-card: 
+    driver: bridger    
