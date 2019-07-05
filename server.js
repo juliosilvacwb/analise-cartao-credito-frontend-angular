@@ -2,7 +2,7 @@ const express = require('express')
 
 const app = express()
 
-const baseDir = `${__dirname}/dist/credito-card/`
+const baseDir = `${__dirname}/build/`
 
 app.use(express.static(`${baseDir}`))
 
