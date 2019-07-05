@@ -1,0 +1,28 @@
+<div class="alert alert-danger" *ngIf="mensagensErro.length > 0">
+    <div class="row">
+        <div class="col-sm-11">
+            <p *ngFor="let mensagem of mensagensErro" style="margin: 0.5em">
+                {{mensagem}}
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeErros()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="alert alert-sucesso" *ngIf="mensagemSucesso">
+    <div class="row">
+        <div class="col-sm-11">
+            <p style="margin: 0.5em">
+                {{mensagemSucesso}}
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeSucesso()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>

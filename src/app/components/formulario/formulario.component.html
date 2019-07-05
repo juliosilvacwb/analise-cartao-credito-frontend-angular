@@ -1,0 +1,77 @@
+<form novalidate #form="ngForm">
+    <app-modal [resultadoAnalise]="proposta.resultadoAnalise" (closeModal)="closeModal()" 
+        *ngIf="mostrarModal && proposta.resultadoAnalise"></app-modal>
+    <app-alertas [mensagemSucesso]="mensagemSucesso" [mensagensErro]="mensagensErro"></app-alertas>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" [(ngModel)]="proposta.cliente.nome" class="form-control"
+                placeholder="Informe o nome">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" [(ngModel)]="proposta.cliente.cpf" class="form-control"
+                placeholder="Informe o CPF" [textMask]="{mask: mascaraCpf}" pattern="^([0-9]{3}).([0-9]{3}).([0-9]{3})-([0-9]{2})$">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input type="text" name="dataNascimento" id="dataNascimento" [(ngModel)]="proposta.cliente.dataNascimento"
+                class="form-control" placeholder="Informe a data de nascimento" [textMask]="{mask: mascaraData}" pattern="^([0-9]{2})/([0-9]{2})/([0-9]{4})$">
+        </div>
+        <div class="form-group col-md-6">
+            <label class="col-sm-12" style="padding: 0em;">Sexo</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sexo" [(ngModel)]="proposta.cliente.sexo"
+                    id="sexo-masculino" value="M" checked>
+                <label class="form-check-label" for="sexo-masculino">
+                    Masculino
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sexo" [(ngModel)]="proposta.cliente.sexo"
+                    id="sexo-feminino" value="F">
+                <label class="form-check-label" for="sexo-feminino">
+                    Feminino
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputState">Estado Cívil</label>
+            <select id="inputState" name="estadoCivil" class="form-control" [(ngModel)]="proposta.cliente.estadoCivil">
+                <option selected value="">Selecione...</option>
+                <option *ngFor="let estadoCivil of estadosCivis" value="{{estadoCivil.valor}}">{{estadoCivil.nome}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputState">Estado</label>
+            <select id="inputState" name="estado" class="form-control" [(ngModel)]="proposta.cliente.estado">
+                <option selected value="">Selecione...</option>
+                <option *ngFor="let estado of estados" value="{{estado.uf}}">{{estado.uf}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="dependentes">Dependentes</label>
+            <input type="text" name="dependentes" [(ngModel)]="proposta.cliente.dependentes" id="dependentes"
+                class="form-control" placeholder="Informe o númeo de dependentes"currencyMask autocomplete="off" 
+                [options]="{ prefix: '', thousands: '', align: 'left', allowNegative: false, precision: 0}">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="renda">Renda R$</label>
+            <input type="text" name="renda" [(ngModel)]="proposta.cliente.renda" id="renda" class="form-control"
+                placeholder="Informe a renda" currencyMask autocomplete="off" 
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',',  align: 'left'}">
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" [disabled]="submetendo" (click)="submeterProposta()">Submeter Proposta</button>
+</form>

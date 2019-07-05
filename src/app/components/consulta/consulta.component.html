@@ -1,0 +1,41 @@
+<app-alertas [mensagemSucesso]="mensagemSucesso" [mensagensErro]="mensagensErro"></app-alertas>
+<div class="input-group col-md-4" style="padding: 0em;">
+    <input type="text" name="cpf" class="form-control" placeholder="Informe o CPF" [(ngModel)]="cpf"
+        [textMask]="{mask: mascaraCpf}" pattern="^([0-9]{3}).([0-9]{3}).([0-9]{3})-([0-9]{2})$">
+    <div class="input-group-append">
+        <button class="btn btn-info" type="button" (click)="buscar()">Pesquisar</button>
+    </div>
+</div>
+
+<div>
+    <div class="card" style="margin-top: 1em; margin-bottom: 1em;">
+        <div class="card-body">
+            <h5 class="card-title">{{cliente.nome}}</h5>
+            <ul class="card-text">
+                <li><strong>Idade: </strong>{{cliente.idade}}</li>
+                <li><strong>Sexo: </strong>{{cliente.sexo}}</li>
+                <li><strong>Estado civil: </strong>{{cliente.estadoCivil}}</li>
+                <li><strong>Estado: </strong>{{cliente.estado}}</li>
+                <li><strong>Dependentes: </strong>{{cliente.dependentes}}</li>
+                <li><strong>Renda: </strong>{{cliente.renda}}</li>
+            </ul>
+        </div>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Resultado da Analise</th>
+                <th scope="col" style="width: 60%">Limite</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let proposta of propostas">
+                <th scope="row">{{proposta.id}}</th>
+                <td>{{proposta.resultadoAnalise.status}}</td>
+                <td>{{proposta.resultadoAnalise.limite}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

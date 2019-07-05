@@ -1,0 +1,23 @@
+<div class="modal fade show">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{resultadoAnalise.status}}</h5>
+                <button type="button" class="close" (click)="fechar()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="resultadoAnalise.status == 'Negado'">
+                    <p>{{resultadoAnalise.limite}}</p>
+                </div>
+                <div *ngIf="resultadoAnalise.status == 'Aprovado'">
+                    <p>{{resultadoAnalise.limite}}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"  (click)="fechar()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
