@@ -1,13 +1,10 @@
-const express = require('express')
+const express = require('express');
+const app = express();
 
-const app = express()
+app.use(express.static(__dirname + '/dist/credito-card'));
 
-const baseDir = `${__dirname}/build/`
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname + '/dist/credito-card/index.html'));
+});
 
-app.use(express.static(`${baseDir}`))
-
-app.get('*', (req,res) => res.sendFile('index.html' , { root : baseDir }))
-
-const port = 3000
-
-app.listen(port, () => console.log(`Servidor subiu com sucesso em http://localhost:${port}`))
+app.listen(process.env.PORT || 8080, () => console.log(`Servidor subiu com sucesso`));

@@ -11,7 +11,7 @@ services:
     image: juliosilvacwb/credito-card-frontend
     container_name: credito-card-frontend
     ports:
-      - "3000:3000"
+      - "4200:4200"
     networks: 
       - net-card
     depends_on: 

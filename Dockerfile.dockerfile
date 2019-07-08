@@ -5,4 +5,4 @@ WORKDIR  /var/www
 RUN npm install -g @angular/cli
 RUN npm install
 ENTRYPOINT npm start
-EXPOSE 3000
+EXPOSE 4200
