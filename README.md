@@ -5,6 +5,7 @@ Esta é a versão frontend de um sistema de análise de solicitação de crédit
 Para este sistema foram utilizados: 
 - Angular v.8.0.1
 - Bootstrap v.4.3.1
+- Servidor Node JS
 
 > Para executar o sistema, baixe o projeto, com o node instalado execute ```npm install``` e após a instalação execute ```ng serve```. O sistema deve ser acessado pela url http://localhost:3000.
 >
