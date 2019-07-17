@@ -7,4 +7,5 @@ Para este sistema foram utilizados:
 - Bootstrap v.4.3.1
 
 > Para executar o sistema, baixe o projeto, com o node instalado execute ```npm install``` e após a instalação execute ```ng serve```. O sistema deve ser acessado pela url http://localhost:3000.
-
+>
+> O Backend deste projeto pode ser encontrado em: https://github.com/juliosilvacwb/credito-card-backend
